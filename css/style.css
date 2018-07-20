@@ -8,3 +8,6 @@
   display: flex;
   flex-direction: column;
 }
+.background {
+  background-color: #16a085;
+}
