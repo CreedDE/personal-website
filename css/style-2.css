@@ -13,3 +13,44 @@ body {
   margin: 0 6px 4px 0;
   padding: 4px 24px 4px 24px;
 }
+.skill-wrap {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 339px) {
+  .skill-wrap > * {
+    display: block;
+  }
+}
+.footer {
+  width: 100%;
+  padding: 4em;
+  text-align: center;
+  background: #2c3e50;
+  color: #fff;
+}
+.footer p {
+  margin-bottom: 0;
+}
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 15px 0;
+}
+.social i {
+  margin-right: 20px;
+  font-size: 22px;
+}
+.social a {
+  color: #fff;
+}
+.color-twitter:hover {
+  color: #1da1f2;
+}
+.color-git:hover {
+  color: #000;
+}
+.color-code:hover {
+  color: #000;
+}
