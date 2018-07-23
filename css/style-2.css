@@ -14,13 +14,10 @@ body {
   padding: 4px 24px 4px 24px;
   background: #2c3e50;
 }
-.skill-wrap {
-  display: flex;
-  align-items: center;
-}
-@media (max-width: 339px) {
-  .skill-wrap > * {
-    display: block;
+@media (max-width: 399px) {
+  .skill-wrap {
+    display: flex;
+    flex-direction: column;
   }
 }
 .footer {
