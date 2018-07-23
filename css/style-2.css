@@ -12,6 +12,7 @@ body {
 .badge-design {
   margin: 0 6px 4px 0;
   padding: 4px 24px 4px 24px;
+  background: #2c3e50;
 }
 .skill-wrap {
   display: flex;
@@ -45,12 +46,24 @@ body {
 .social a {
   color: #fff;
 }
-.color-twitter:hover {
+.color-twitter {
   color: #1da1f2;
 }
+.color-twitter:hover {
+  color: #fff;
+}
+.color-git {
+  color: #000;
+}
 .color-git:hover {
+  color: #fff;
+}
+.color-code {
   color: #000;
 }
 .color-code:hover {
-  color: #000;
+  color: #fff;
+}
+.nav-color {
+  background: #2c3e50;
 }
