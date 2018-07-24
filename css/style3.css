@@ -1,0 +1,28 @@
+.header {
+  background-image: url("../img/code.jpg");
+  background-color: rgba(52, 152, 219, 0.8);
+  background-blend-mode: lighten;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+
+.header img {
+  height: 250px;
+  width: 250px;
+  border: 4px solid red;
+  border-radius: 50%;
+}
+
+.header__nav {
+  display: flex;
+  list-style: none;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.header__nav li {
+  padding: 5px 10px;
+}

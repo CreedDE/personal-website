@@ -14,7 +14,7 @@ body {
   padding: 4px 24px 4px 24px;
   background: #2c3e50;
 }
-@media (max-width: 399px) {
+@media (max-width: 429px) {
   .skill-wrap {
     display: flex;
     flex-direction: column;
