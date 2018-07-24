@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/CreedDE/personal-website#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.2.0",
     "bootstrap": "^4.1.2",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.3"
