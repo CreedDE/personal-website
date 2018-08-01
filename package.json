@@ -4,6 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm run bs | npm run watch | npm run sass",
+    "html": "html-include-comment src/index.html dist/index.html",
+    "sass": "node-sass src/scss/style.scss dist/css/style.css --output-style compressed && node-sass src/scss/style.scss dist/css/style.css --output-style compressed -w src/scss",
+    "watch": "watch 'npm run html' src --interval 0.1",
+    "bs": "browser-sync start --server dist/ --files dist/*.{css,html} --serveStatic node_modules",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +26,11 @@
     "bootstrap": "^4.1.2",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.6",
+    "html-include-comment": "0.0.10",
+    "node-sass": "^4.9.2",
+    "watch": "^1.0.2"
   }
 }
