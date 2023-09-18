@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React, { useRef, useState } from 'react';
 import {
   Card,
   Container,
@@ -9,42 +9,42 @@ import {
   Text,
   Stack,
   useElementSize,
-  useTheme,
-} from '@sanity/ui'
-import {CloseIcon} from '@sanity/icons'
-import styled, {css} from 'styled-components'
+  useTheme
+} from '@sanity/ui';
+import { CloseIcon } from '@sanity/icons';
+import styled, { css } from 'styled-components';
 
 const BlueColor = css`
-  color: ${({theme}) => theme.sanity.color.muted.primary.enabled.fg};
-`
+  color: ${({ theme }) => theme.sanity.color.muted.primary.enabled.fg};
+`;
 
 const LabelContainer = styled(Label)`
   ${BlueColor}
-`
+`;
 
 const TextContainer = styled(Text)`
   ${BlueColor}
-`
+`;
 
 export const GetStartedTutorial = () => {
   const [hideTutorial, setShowTutorial] = useState(
     window.localStorage.getItem('getstarted_closedTutorial') !== null
-  )
+  );
 
-  const {sanity} = useTheme()
-  const rootElement = useRef(null)
-  const rect = useElementSize(rootElement.current)
-  const width = rect?.content?.width
-  const isSmallScreen = width ? width < sanity.media[1] : false
-  const isProdEnv = process.env.NODE_ENV !== 'development'
+  const { sanity } = useTheme();
+  const rootElement = useRef(null);
+  const rect = useElementSize(rootElement.current);
+  const width = rect?.content?.width;
+  const isSmallScreen = width ? width < sanity.media[1] : false;
+  const isProdEnv = process.env.NODE_ENV !== 'development';
 
   const onClose = () => {
-    window.localStorage.setItem('getstarted_closedTutorial', 'true')
-    setShowTutorial(true)
-  }
+    window.localStorage.setItem('getstarted_closedTutorial', 'true');
+    setShowTutorial(true);
+  };
 
   if (hideTutorial || isProdEnv) {
-    return null
+    return null;
   }
 
   return (
@@ -100,5 +100,5 @@ export const GetStartedTutorial = () => {
         </Stack>
       </Card>
     </div>
-  )
-}
+  );
+};

@@ -1,5 +1,5 @@
-import {definePlugin} from 'sanity'
-import {CustomDefaultLayout} from './CustomDefaultLayout'
+import { definePlugin } from 'sanity';
+import { CustomDefaultLayout } from './CustomDefaultLayout';
 
 export const getStartedPlugin = definePlugin({
   name: 'sanity-plugin-tutorial',
@@ -7,5 +7,5 @@ export const getStartedPlugin = definePlugin({
     components: {
       layout: CustomDefaultLayout
     }
-  },
-})
+  }
+});
