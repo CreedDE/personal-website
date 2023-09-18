@@ -1,0 +1,41 @@
+.footer {
+  width: 100%;
+  padding: 4em;
+  text-align: center;
+  background: #2c3e50;
+  color: #fff;
+}
+.footer p {
+  margin-bottom: 0;
+}
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 15px 0;
+}
+.social i {
+  margin-right: 20px;
+  font-size: 22px;
+}
+.social a {
+  color: #fff;
+}
+.color-twitter {
+  color: #1da1f2;
+}
+.color-twitter:hover {
+  color: #fff;
+}
+.color-git {
+  color: #000;
+}
+.color-git:hover {
+  color: #fff;
+}
+.color-code {
+  color: #000;
+}
+.color-code:hover {
+  color: #fff;
+}

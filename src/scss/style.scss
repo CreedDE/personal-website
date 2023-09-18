@@ -1,0 +1,27 @@
+@import 'footer';
+@import 'test';
+body {
+  font-family: 'Lato', sans-serif;
+}
+.background {
+  background-color: #16a085;
+}
+.avatar {
+  border-radius: 50%;
+  border: 6px solid #fff;
+  width: 260px;
+}
+.badge-design {
+  margin: 0 6px 4px 0;
+  padding: 4px 24px 4px 24px;
+  background: #2c3e50;
+}
+@media (max-width: 429px) {
+  .skill-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.nav-color {
+  background: #2c3e50;
+}
