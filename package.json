@@ -1,20 +1,21 @@
 {
+  "name": "personal-website",
   "private": true,
   "scripts": {
     "build": "turbo run build",
     "dev": "dotenv -- turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write ."
   },
   "devDependencies": {
     "eslint": "^8.48.0",
     "prettier": "^3.0.3",
+    "prettier-plugin-svelte": "^2.10.1",
     "tsconfig": "workspace:*",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@8.6.10",
-  "name": "personal-website",
   "dependencies": {
     "dotenv-cli": "^7.3.0"
-  }
+  },
+  "packageManager": "pnpm@8.6.10"
 }
