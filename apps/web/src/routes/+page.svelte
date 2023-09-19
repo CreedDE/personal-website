@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Button } from 'ui';
   import type { PageData } from './$types';
 
   export let data: PageData;
@@ -16,3 +17,5 @@
 {:else}
   <p>Nothing found</p>
 {/if}
+
+<Button>Hello World</Button>
