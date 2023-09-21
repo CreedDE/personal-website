@@ -99,7 +99,7 @@ importers:
         specifier: ^6.0.0
         version: 6.5.0(eslint@8.48.0)(typescript@5.2.2)
       autoprefixer:
-        specifier: ^10.4.15
+        specifier: ^10.4.14
         version: 10.4.15(postcss@8.4.30)
       eslint:
         specifier: ^8.28.0
@@ -114,8 +114,11 @@ importers:
         specifier: ^2.30.0
         version: 2.33.1(eslint@8.48.0)(svelte@4.2.0)
       postcss:
-        specifier: ^8.4.30
+        specifier: ^8.4.24
         version: 8.4.30
+      postcss-load-config:
+        specifier: ^4.0.1
+        version: 4.0.1(postcss@8.4.30)
       prettier:
         specifier: ^2.8.0
         version: 2.8.8
@@ -127,12 +130,12 @@ importers:
         version: 4.2.0
       svelte-check:
         specifier: ^3.4.3
-        version: 3.5.1(postcss@8.4.30)(svelte@4.2.0)
+        version: 3.5.1(postcss-load-config@4.0.1)(postcss@8.4.30)(svelte@4.2.0)
       tailwind-config:
         specifier: workspace:*
         version: link:../../packages/tailwind-config
       tailwindcss:
-        specifier: ^3.3.3
+        specifier: ^3.3.2
         version: 3.3.3
       tslib:
         specifier: ^2.4.1
@@ -199,7 +202,7 @@ importers:
         specifier: ^6.0.0
         version: 6.5.0(eslint@8.49.0)(typescript@5.2.2)
       autoprefixer:
-        specifier: ^10.4.15
+        specifier: ^10.4.14
         version: 10.4.15(postcss@8.4.30)
       eslint:
         specifier: ^8.28.0
@@ -211,8 +214,11 @@ importers:
         specifier: ^2.30.0
         version: 2.33.1(eslint@8.49.0)(svelte@4.2.0)
       postcss:
-        specifier: ^8.4.30
+        specifier: ^8.4.24
         version: 8.4.30
+      postcss-load-config:
+        specifier: ^4.0.1
+        version: 4.0.1(postcss@8.4.30)
       prettier:
         specifier: ^2.8.0
         version: 2.8.8
@@ -227,12 +233,12 @@ importers:
         version: 4.2.0
       svelte-check:
         specifier: ^3.4.3
-        version: 3.5.1(postcss@8.4.30)(svelte@4.2.0)
+        version: 3.5.1(postcss-load-config@4.0.1)(postcss@8.4.30)(svelte@4.2.0)
       tailwind-config:
         specifier: workspace:*
         version: link:../tailwind-config
       tailwindcss:
-        specifier: ^3.3.3
+        specifier: ^3.3.2
         version: 3.3.3
       tslib:
         specifier: ^2.4.1
@@ -7401,7 +7407,7 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /svelte-check@3.5.1(postcss@8.4.30)(svelte@4.2.0):
+  /svelte-check@3.5.1(postcss-load-config@4.0.1)(postcss@8.4.30)(svelte@4.2.0):
     resolution: {integrity: sha512-+Zb4iHxAhdUtcUg/WJPRjlS1RJalIsWAe9Mz6G1zyznSs7dDkT7VUBdXc3q7Iwg49O/VrZgyJRvOJkjuBfKjFA==}
     hasBin: true
     peerDependencies:
@@ -7414,7 +7420,7 @@ packages:
       picocolors: 1.0.0
       sade: 1.8.1
       svelte: 4.2.0
-      svelte-preprocess: 5.0.4(postcss@8.4.30)(svelte@4.2.0)(typescript@5.2.2)
+      svelte-preprocess: 5.0.4(postcss-load-config@4.0.1)(postcss@8.4.30)(svelte@4.2.0)(typescript@5.2.2)
       typescript: 5.2.2
     transitivePeerDependencies:
       - '@babel/core'
@@ -7454,7 +7460,7 @@ packages:
       svelte: 4.2.0
     dev: true
 
-  /svelte-preprocess@5.0.4(postcss@8.4.30)(svelte@4.2.0)(typescript@5.2.2):
+  /svelte-preprocess@5.0.4(postcss-load-config@4.0.1)(postcss@8.4.30)(svelte@4.2.0)(typescript@5.2.2):
     resolution: {integrity: sha512-ABia2QegosxOGsVlsSBJvoWeXy1wUKSfF7SWJdTjLAbx/Y3SrVevvvbFNQqrSJw89+lNSsM58SipmZJ5SRi5iw==}
     engines: {node: '>= 14.10.0'}
     requiresBuild: true
@@ -7496,6 +7502,7 @@ packages:
       detect-indent: 6.1.0
       magic-string: 0.27.0
       postcss: 8.4.30
+      postcss-load-config: 4.0.1(postcss@8.4.30)
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 4.2.0
