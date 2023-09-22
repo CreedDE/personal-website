@@ -3,6 +3,9 @@ import { visionTool } from '@sanity/vision';
 import { deskTool } from 'sanity/desk';
 import { schemaTypes } from './schemas';
 import { getStartedPlugin } from './plugins/sanity-plugin-tutorial';
+import { pageStructure, singletonPlugin } from './plugins/singleton';
+import home from './schemas/singleton/home';
+import settings from './schemas/singleton/settings';
 
 export const projectId = process.env.SANITY_STUDIO_PROJECT_ID!;
 export const dataset = process.env.SANITY_STUDIO_DATASET!;
@@ -16,7 +19,14 @@ export default defineConfig({
   projectId,
   dataset,
 
-  plugins: [deskTool(), visionTool(), ...(isDev ? devOnlyPlugins : [])],
+  plugins: [
+    deskTool({
+      structure: pageStructure([home, settings])
+    }),
+    singletonPlugin([home.name, settings.name]),
+    visionTool(),
+    ...(isDev ? devOnlyPlugins : [])
+  ],
 
   schema: {
     types: schemaTypes
