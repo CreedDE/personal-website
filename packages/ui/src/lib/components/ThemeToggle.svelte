@@ -38,7 +38,7 @@
   }
 
   #theme-toggle + label {
-    @apply inline-block cursor-pointer h-12 w-12 absolute top-6 right-24 rounded-full duration-300 content-[''];
+    @apply inline-block cursor-pointer h-4 w-4 absolute top-6 right-24 rounded-full duration-300 content-[''];
   }
 
   #theme-toggle:not(:checked) + label {
@@ -47,6 +47,6 @@
 
   #theme-toggle:checked + label {
     @apply bg-transparent;
-    box-shadow: inset -18px -16px 1px 1px #fff;
+    box-shadow: inset -6px -5px 1px 1px #fff;
   }
 </style>
