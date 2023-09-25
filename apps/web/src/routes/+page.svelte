@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button, Card, ThemeToggle } from 'ui';
+  import { Card } from 'ui';
   import type { PageData } from './$types';
   import Welcome from '$lib/components/welcome.svelte';
 
