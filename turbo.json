@@ -4,6 +4,11 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "web#build": {
+      "dependsOn": ["^build"],
+      "env": ["SANITY_STUDIO_PROJECT_ID", "SANITY_STUDIO_DATASET"],
       "outputs": [".svelte-kit/**", ".vercel/**"]
     },
     "lint": {},
