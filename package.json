@@ -6,7 +6,7 @@
     "dev": "dotenv -- turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write .",
-    "changeset": "changeset && changeset version"
+    "changeset": "changeset && changeset version && changeset tag"
   },
   "devDependencies": {
     "eslint": "^8.48.0",
