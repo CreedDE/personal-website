@@ -38,6 +38,7 @@
   "dependencies": {
     "@sanity/client": "^6.4.12",
     "groq": "^3.16.7",
+    "lucide-svelte": "^0.279.0",
     "ui": "workspace:*"
   }
 }
