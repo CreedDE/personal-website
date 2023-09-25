@@ -1,6 +1,5 @@
 import { SANITY_STUDIO_DATASET, SANITY_STUDIO_PROJECT_ID } from '$env/static/private';
 import { createClient } from '@sanity/client';
-import type { Slug } from '@sanity/types';
 import groq from 'groq';
 
 if (!SANITY_STUDIO_DATASET || !SANITY_STUDIO_PROJECT_ID) {
@@ -17,6 +16,20 @@ export async function getPets(): Promise<Pet[]> {
   return await client.fetch(groq`*[_type == "pet"] | order(_createdAt desc)`);
 }
 
+export async function getHomepage(): Promise<Home> {
+  return await client.fetch(groq`*[_type == "home"][0]{_id,  overview, title}`);
+}
+
+export async function getNavigation(): Promise<Navigation> {
+  return await client.fetch(groq`*[_type == "settings"][0]{
+    menuItems[]->{
+      _type,
+      title,
+      "slug": slug.current
+    }
+  }`);
+}
+
 export interface Pet {
   _type: 'pet';
   _id: string;
@@ -24,4 +37,20 @@ export interface Pet {
   _rev: string;
   _updatedAt: string;
   name: string;
+}
+
+export interface Home {
+  _id: string;
+  _type: 'home';
+  title: string;
+}
+
+export interface MenuItem {
+  _type: string;
+  slug?: string;
+  title?: string;
+}
+
+export interface Navigation {
+  menuItems: MenuItem[];
 }
