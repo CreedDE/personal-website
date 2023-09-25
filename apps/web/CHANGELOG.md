@@ -1,5 +1,13 @@
 # web
 
+## 0.1.2
+
+### Patch Changes
+
+- test if build works now
+- Updated dependencies
+  - ui@0.1.1
+
 ## 0.1.1
 
 ### Patch Changes
