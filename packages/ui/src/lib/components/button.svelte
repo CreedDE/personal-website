@@ -14,7 +14,8 @@
           default: 'bg-secondary/70 border-border text-foreground hover:bg-secondary',
           primary:
             'bg-primary/70 border-primary text-background hover:bg-primary dark:text-foreground',
-          link: 'text-foreground hover:bg-secondary border-0 shadow-none'
+          link: 'text-foreground hover:bg-secondary border-0 shadow-none',
+          icon: 'text-foreground border-0 shadow-none dark:text-foreground'
         }
       },
       defaultVariants: {
