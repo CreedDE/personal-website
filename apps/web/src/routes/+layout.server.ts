@@ -1,8 +1,10 @@
 import { getNavigation } from '$lib/utils/sanity';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ cookies }) => {
   const navigation = await getNavigation();
 
-  return { navigation };
+  const theme = cookies.get('colortheme');
+
+  return { navigation, theme };
 };

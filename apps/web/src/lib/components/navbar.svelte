@@ -1,8 +1,10 @@
 <script lang="ts">
+  import { enhance } from '$app/forms';
   import type { MenuItem } from '$lib/utils/sanity';
   import { resolveHref } from '$lib/utils/sanity.links';
+  import type { SubmitFunction } from '@sveltejs/kit';
   import { Github, Menu } from 'lucide-svelte';
-  import { Button, Sheet, ThemeToggle } from 'ui';
+  import { Button, Sheet, Select } from 'ui';
 
   export let menuItems: MenuItem[];
 
@@ -10,6 +12,19 @@
   $: innerHeight = 0;
 
   let mobileNav = false;
+
+  const themes = [
+    { value: 'light', label: 'light' },
+    { value: 'dark', label: 'dark' }
+  ];
+
+  const submitTheme: SubmitFunction = ({ action }) => {
+    const theme = action.searchParams.get('theme');
+
+    if (theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+  };
 </script>
 
 <svelte:window bind:innerHeight bind:innerWidth />
@@ -19,21 +34,46 @@
     class="fixed top-0 left-0 right-0 backdrop-blur backdrop-saturate-150 z-50 flex flex-col items-center h-12 border border-border"
   >
     <div class="w-full">
-      <nav class="relative">
-        <ul class="flex items-center h-12 gap-4 px-12">
+      <nav class="relative flex items-center justify-between px-12">
+        <ul class="flex items-center h-12 gap-4">
           {#each menuItems as menuItem}
             {@const href = resolveHref(menuItem._type, menuItem.slug)}
             {#if menuItem._type == 'home'}
-              <li>
+              <li
+                class="font-medium transition-colors duration-200 hover:text-primary text-foreground"
+              >
                 <a {href}>Home</a>
               </li>
             {:else}
-              <li>
+              <li
+                class="font-medium transition-colors duration-200 hover:text-primary text-foreground"
+              >
                 <a {href}>{menuItem.title}</a>
               </li>
             {/if}
           {/each}
         </ul>
+
+        <div>
+          <Select.Root>
+            <Select.Trigger>
+              <Select.Value placeholder="Select a Theme" />
+            </Select.Trigger>
+            <Select.Content>
+              <Select.Group>
+                <form method="POST" use:enhance={submitTheme}>
+                  {#each themes as theme}
+                    <button formaction="/?/setTheme&theme={theme.value}">
+                      <Select.Item value={theme.value}>
+                        {theme.label}
+                      </Select.Item>
+                    </button>
+                  {/each}
+                </form>
+              </Select.Group>
+            </Select.Content>
+          </Select.Root>
+        </div>
       </nav>
     </div>
   </header>
@@ -52,7 +92,7 @@
         </div>
 
         <div>
-          <Button variant="link" href="https://github.com/CreedDE/personal-website" target="_blank">
+          <Button variant="icon" href="https://github.com/CreedDE/personal-website" target="_blank">
             <Github />
           </Button>
         </div>
@@ -80,7 +120,26 @@
           {/each}
         </nav>
 
-        <ThemeToggle />
+        <div>
+          <Select.Root>
+            <Select.Trigger>
+              <Select.Value placeholder="Select a Theme" />
+            </Select.Trigger>
+            <Select.Content>
+              <Select.Group>
+                <form method="POST" use:enhance={submitTheme}>
+                  {#each themes as theme}
+                    <button formaction="/?/setTheme&theme={theme.value}">
+                      <Select.Item value={theme.value}>
+                        {theme.label}
+                      </Select.Item>
+                    </button>
+                  {/each}
+                </form>
+              </Select.Group>
+            </Select.Content>
+          </Select.Root>
+        </div>
       </Sheet.Description>
     </Sheet.Content>
   </Sheet.Root>
