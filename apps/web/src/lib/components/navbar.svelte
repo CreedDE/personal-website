@@ -5,6 +5,7 @@
   import type { SubmitFunction } from '@sveltejs/kit';
   import { Github, Menu } from 'lucide-svelte';
   import { Button, Sheet, Select } from 'ui';
+  import ThemeToggle from './ThemeToggle.svelte';
 
   export let menuItems: MenuItem[];
 
@@ -55,24 +56,7 @@
         </ul>
 
         <div>
-          <Select.Root>
-            <Select.Trigger>
-              <Select.Value placeholder="Select a Theme" />
-            </Select.Trigger>
-            <Select.Content>
-              <Select.Group>
-                <form method="POST" use:enhance={submitTheme}>
-                  {#each themes as theme}
-                    <button formaction="/?/setTheme&theme={theme.value}">
-                      <Select.Item value={theme.value}>
-                        {theme.label}
-                      </Select.Item>
-                    </button>
-                  {/each}
-                </form>
-              </Select.Group>
-            </Select.Content>
-          </Select.Root>
+          <ThemeToggle />
         </div>
       </nav>
     </div>
@@ -89,6 +73,10 @@
           >
             thmoe
           </p>
+        </div>
+
+        <div>
+          <ThemeToggle />
         </div>
 
         <div>
@@ -119,27 +107,6 @@
             {/if}
           {/each}
         </nav>
-
-        <div>
-          <Select.Root>
-            <Select.Trigger>
-              <Select.Value placeholder="Select a Theme" />
-            </Select.Trigger>
-            <Select.Content>
-              <Select.Group>
-                <form method="POST" use:enhance={submitTheme}>
-                  {#each themes as theme}
-                    <button formaction="/?/setTheme&theme={theme.value}">
-                      <Select.Item value={theme.value}>
-                        {theme.label}
-                      </Select.Item>
-                    </button>
-                  {/each}
-                </form>
-              </Select.Group>
-            </Select.Content>
-          </Select.Root>
-        </div>
       </Sheet.Description>
     </Sheet.Content>
   </Sheet.Root>

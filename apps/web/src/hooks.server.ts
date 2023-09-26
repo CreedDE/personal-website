@@ -1,22 +1,14 @@
-import type { Handle } from '@sveltejs/kit';
+import { THEMES } from '$lib/utils/theme';
 
-export const handle = (async ({ event, resolve }) => {
-  let theme: string | null = null;
-
-  const newTheme = event.url.searchParams.get('theme');
-  const cookieTheme = event.cookies.get('colortheme');
-
-  if (newTheme) {
-    theme = newTheme;
-  } else if (cookieTheme) {
-    theme = cookieTheme;
+export const handle = async ({ event, resolve }) => {
+  const theme = event.cookies.get('theme');
+  if (!theme || !Object.values(THEMES).includes(theme)) {
+    return await resolve(event);
   }
 
-  if (theme) {
-    return await resolve(event, {
-      transformPageChunk: ({ html }) => html.replace('data-theme=""', `data-theme="${theme}"`)
-    });
-  }
-
-  return await resolve(event);
-}) satisfies Handle;
+  return await resolve(event, {
+    transformPageChunk: ({ html }) => {
+      return html.replace('data-theme=""', `data-theme="${theme}"`);
+    }
+  });
+};
