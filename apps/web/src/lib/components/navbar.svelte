@@ -54,11 +54,12 @@
     <div class="w-full px-4">
       <div class="flex items-center justify-between h-12">
         <div>
-          <p
+          <a
+            href="/"
             class="text-xl text-transparent font-bold bg-clip-text bg-gradient-to-br from-emerald-600 to-emerald-300"
           >
             thmoe
-          </p>
+          </a>
         </div>
 
         <div class="flex items-center justify-center gap-4">
