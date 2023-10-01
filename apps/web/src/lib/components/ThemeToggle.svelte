@@ -1,6 +1,6 @@
 <script lang="ts">
   import { THEMES } from '$lib/utils/theme';
-  import { Sun } from 'lucide-svelte';
+  import { Moon, Sun } from 'lucide-svelte';
   import { onMount } from 'svelte';
 
   let currentTheme: string;
@@ -35,5 +35,9 @@
 </script>
 
 <button on:click={toggleTheme}>
-  <Sun />
+  {#if currentTheme === THEMES.LIGHT}
+    <Moon />
+  {:else if currentTheme === THEMES.DARK}
+    <Sun />
+  {/if}
 </button>
