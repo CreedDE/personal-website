@@ -1,10 +1,8 @@
 <script lang="ts">
-  import { enhance } from '$app/forms';
   import type { MenuItem } from '$lib/utils/sanity';
   import { resolveHref } from '$lib/utils/sanity.links';
-  import type { SubmitFunction } from '@sveltejs/kit';
   import { Github, Menu } from 'lucide-svelte';
-  import { Button, Sheet, Select } from 'ui';
+  import { Button, Sheet } from 'ui';
   import ThemeToggle from './ThemeToggle.svelte';
 
   export let menuItems: MenuItem[];
@@ -13,19 +11,6 @@
   $: innerHeight = 0;
 
   let mobileNav = false;
-
-  const themes = [
-    { value: 'light', label: 'light' },
-    { value: 'dark', label: 'dark' }
-  ];
-
-  const submitTheme: SubmitFunction = ({ action }) => {
-    const theme = action.searchParams.get('theme');
-
-    if (theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-    }
-  };
 </script>
 
 <svelte:window bind:innerHeight bind:innerWidth />
@@ -35,7 +20,8 @@
     class="fixed top-0 left-0 right-0 backdrop-blur backdrop-saturate-150 z-50 flex flex-col items-center h-12 border border-border"
   >
     <div class="w-full">
-      <nav class="relative flex items-center justify-between px-12">
+      <nav class="relative flex items-center justify-between px-24">
+        <div />
         <ul class="flex items-center h-12 gap-4">
           {#each menuItems as menuItem}
             {@const href = resolveHref(menuItem._type, menuItem.slug)}
@@ -75,11 +61,8 @@
           </p>
         </div>
 
-        <div>
+        <div class="flex items-center justify-center gap-4">
           <ThemeToggle />
-        </div>
-
-        <div>
           <Button variant="icon" href="https://github.com/CreedDE/personal-website" target="_blank">
             <Github />
           </Button>
