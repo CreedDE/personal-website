@@ -43,6 +43,22 @@ export interface Home {
   _id: string;
   _type: 'home';
   title: string;
+  overview: Overview[];
+}
+
+export interface OverviewChildren {
+  _key: string;
+  _type: string;
+  marks: any[];
+  text: string;
+}
+
+export interface Overview {
+  _key: string;
+  _type: string;
+  children: OverviewChildren[];
+  markDefs: any[];
+  style: string;
 }
 
 export interface MenuItem {
