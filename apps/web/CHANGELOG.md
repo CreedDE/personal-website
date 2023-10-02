@@ -1,5 +1,13 @@
 # web
 
+## 0.2.0
+
+### Minor Changes
+
+- Adding Imprint Page
+  Add new way of storing theme
+  new way of switching theme in header
+
 ## 0.1.6
 
 ### Patch Changes

@@ -4,3 +4,4 @@ export { default as ThemeToggle } from './components/ThemeToggle.svelte';
 
 export * as Card from './components/card/index.js';
 export * as Sheet from './components/sheet/index.js';
+export * as Select from './components/select/index.js';

@@ -2,7 +2,8 @@
   import type { MenuItem } from '$lib/utils/sanity';
   import { resolveHref } from '$lib/utils/sanity.links';
   import { Github, Menu } from 'lucide-svelte';
-  import { Button, Sheet, ThemeToggle } from 'ui';
+  import { Button, Sheet } from 'ui';
+  import ThemeToggle from './ThemeToggle.svelte';
 
   export let menuItems: MenuItem[];
 
@@ -19,21 +20,30 @@
     class="fixed top-0 left-0 right-0 backdrop-blur backdrop-saturate-150 z-50 flex flex-col items-center h-12 border border-border"
   >
     <div class="w-full">
-      <nav class="relative">
-        <ul class="flex items-center h-12 gap-4 px-12">
+      <nav class="relative flex items-center justify-between px-24">
+        <div />
+        <ul class="flex items-center h-12 gap-4">
           {#each menuItems as menuItem}
             {@const href = resolveHref(menuItem._type, menuItem.slug)}
             {#if menuItem._type == 'home'}
-              <li>
+              <li
+                class="font-medium transition-colors duration-200 hover:text-primary text-foreground"
+              >
                 <a {href}>Home</a>
               </li>
             {:else}
-              <li>
+              <li
+                class="font-medium transition-colors duration-200 hover:text-primary text-foreground"
+              >
                 <a {href}>{menuItem.title}</a>
               </li>
             {/if}
           {/each}
         </ul>
+
+        <div>
+          <ThemeToggle />
+        </div>
       </nav>
     </div>
   </header>
@@ -44,15 +54,17 @@
     <div class="w-full px-4">
       <div class="flex items-center justify-between h-12">
         <div>
-          <p
+          <a
+            href="/"
             class="text-xl text-transparent font-bold bg-clip-text bg-gradient-to-br from-emerald-600 to-emerald-300"
           >
             thmoe
-          </p>
+          </a>
         </div>
 
-        <div>
-          <Button variant="link" href="https://github.com/CreedDE/personal-website" target="_blank">
+        <div class="flex items-center justify-center gap-4">
+          <ThemeToggle />
+          <Button variant="icon" href="https://github.com/CreedDE/personal-website" target="_blank">
             <Github />
           </Button>
         </div>
@@ -79,8 +91,6 @@
             {/if}
           {/each}
         </nav>
-
-        <ThemeToggle />
       </Sheet.Description>
     </Sheet.Content>
   </Sheet.Root>

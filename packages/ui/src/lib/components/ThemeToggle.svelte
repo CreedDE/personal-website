@@ -1,7 +1,8 @@
 <script lang="ts">
   import { browser } from '$app/environment';
+  import { onMount } from 'svelte';
 
-  let darkMode = true;
+  let darkMode = false;
 
   function handleSwitchDarkMode() {
     darkMode = !darkMode;
@@ -13,18 +14,20 @@
       : document.documentElement.classList.remove('dark');
   }
 
-  if (browser) {
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-      darkMode = true;
-    } else {
-      document.documentElement.classList.remove('dark');
-      darkMode = false;
+  onMount(() => {
+    if (browser) {
+      if (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+        darkMode = true;
+      } else {
+        document.documentElement.classList.remove('dark');
+        darkMode = false;
+      }
     }
-  }
+  });
 </script>
 
 <div>

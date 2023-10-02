@@ -30,6 +30,10 @@ export async function getNavigation(): Promise<Navigation> {
   }`);
 }
 
+export async function getImprint(): Promise<Imprint> {
+  return await client.fetch(groq`*[_type == "imprint"][0]`);
+}
+
 export interface Pet {
   _type: 'pet';
   _id: string;
@@ -43,6 +47,35 @@ export interface Home {
   _id: string;
   _type: 'home';
   title: string;
+  overview: Overview[];
+}
+
+interface GenericChildren {
+  _key: string;
+  _type: string;
+  marks: [];
+  text: string;
+}
+
+interface GenericBlock {
+  _key: string;
+  _type: 'block';
+  children: GenericChildren[];
+}
+
+export interface OverviewChildren {
+  _key: string;
+  _type: string;
+  marks: any[];
+  text: string;
+}
+
+export interface Overview {
+  _key: string;
+  _type: string;
+  children: OverviewChildren[];
+  markDefs: any[];
+  style: string;
 }
 
 export interface MenuItem {
@@ -53,4 +86,21 @@ export interface MenuItem {
 
 export interface Navigation {
   menuItems: MenuItem[];
+}
+
+export interface Imprint {
+  _type: 'imprint';
+  _createdAt: string;
+  _id: string;
+  fullName: string;
+  street: string;
+  postal: string;
+  email: string;
+  name: string;
+  linkTitle: string;
+  linkText: GenericBlock[];
+  contentTitle: string;
+  contentText: GenericBlock[];
+  copyrightTitle: string;
+  copyrightText: GenericBlock[];
 }
