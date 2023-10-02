@@ -16,7 +16,7 @@ export default defineType({
   ],
   fields: [
     defineField({
-      name: 'fullname',
+      name: 'fullName',
       description: 'This field is the name of the person / company',
       title: 'Full Name',
       type: 'string',
@@ -54,20 +54,20 @@ export default defineType({
       group: 'contact'
     }),
     defineField({
-      name: 'phonenumber',
+      name: 'phoneNumber',
       title: 'Phone Number',
       description: 'Phone Number to contact owner of site',
       type: 'string',
       group: 'contact'
     }),
     defineField({
-      name: 'linktitle',
+      name: 'linkTitle',
       title: 'Liability Link Title',
       type: 'string',
       group: 'links'
     }),
     defineField({
-      name: 'linktext',
+      name: 'linkText',
       title: 'Liability Link Text',
       type: 'array',
       group: 'links',
@@ -87,13 +87,13 @@ export default defineType({
       ]
     }),
     defineField({
-      name: 'contenttitle',
+      name: 'contentTitle',
       title: 'Liability Content Title',
       type: 'string',
       group: 'content'
     }),
     defineField({
-      name: 'contenttext',
+      name: 'contentText',
       title: 'Liability Content Text',
       type: 'array',
       group: 'content',
@@ -113,13 +113,13 @@ export default defineType({
       ]
     }),
     defineField({
-      name: 'copyrighttitle',
+      name: 'copyrightTitle',
       title: 'Copyright Title',
       type: 'string',
       group: 'copyright'
     }),
     defineField({
-      name: 'copyrighttext',
+      name: 'copyrightText',
       title: 'Copyright Text',
       type: 'array',
       group: 'copyright',
