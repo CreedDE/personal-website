@@ -7,6 +7,7 @@ import { pageStructure, singletonPlugin } from './plugins/singleton';
 import home from './schemas/singleton/home';
 import settings from './schemas/singleton/settings';
 import imprint from './schemas/singleton/imprint';
+import about from './schemas/singleton/about';
 
 export const projectId = process.env.SANITY_STUDIO_PROJECT_ID!;
 export const dataset = process.env.SANITY_STUDIO_DATASET!;
@@ -22,9 +23,9 @@ export default defineConfig({
 
   plugins: [
     deskTool({
-      structure: pageStructure([home, settings, imprint])
+      structure: pageStructure([home, settings, imprint, about])
     }),
-    singletonPlugin([home.name, settings.name, imprint.name]),
+    singletonPlugin([home.name, settings.name, imprint.name, about.name]),
     visionTool(),
     ...(isDev ? devOnlyPlugins : [])
   ],
