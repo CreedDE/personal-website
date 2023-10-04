@@ -36,6 +36,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@fontsource/inter": "^5.0.12",
     "@sanity/client": "^6.4.12",
     "@sveltejs/adapter-vercel": "^3.0.3",
     "groq": "^3.16.7",

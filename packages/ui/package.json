@@ -57,6 +57,7 @@
   "types": "./dist/index.d.ts",
   "type": "module",
   "dependencies": {
+    "@fontsource/inter": "^5.0.12",
     "bits-ui": "^0.5.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",

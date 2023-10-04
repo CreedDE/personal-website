@@ -76,6 +76,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@fontsource/inter':
+        specifier: ^5.0.12
+        version: 5.0.12
       '@sanity/client':
         specifier: ^6.4.12
         version: 6.4.12
@@ -182,6 +185,9 @@ importers:
 
   packages/ui:
     dependencies:
+      '@fontsource/inter':
+        specifier: ^5.0.12
+        version: 5.0.12
       bits-ui:
         specifier: ^0.5.7
         version: 0.5.7(svelte@4.2.0)
@@ -2417,6 +2423,10 @@ packages:
 
   /@floating-ui/utils@0.1.4:
     resolution: {integrity: sha512-qprfWkn82Iw821mcKofJ5Pk9wgioHicxcQMxx+5zt5GSKoqdWvgG5AxVmpmUUjzTLPVSH5auBrhI93Deayn/DA==}
+    dev: false
+
+  /@fontsource/inter@5.0.12:
+    resolution: {integrity: sha512-9MCQLyzhMqQW9Ky5k/tcE+t88EyLX6z9VrU54AadHoF6s0dGiqbNVmusMe0/vrLmDxPV1ZDl3DdVyNhR49qbPg==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.10:
