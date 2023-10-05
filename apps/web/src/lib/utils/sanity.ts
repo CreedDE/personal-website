@@ -34,6 +34,10 @@ export async function getImprint(): Promise<Imprint> {
   return await client.fetch(groq`*[_type == "imprint"][0]`);
 }
 
+export async function getAbout(): Promise<About> {
+  return await client.fetch(groq`*[_type == 'about'][0]`);
+}
+
 export interface Pet {
   _type: 'pet';
   _id: string;
@@ -103,4 +107,34 @@ export interface Imprint {
   contentText: GenericBlock[];
   copyrightTitle: string;
   copyrightText: GenericBlock[];
+}
+
+interface Asset {
+  _ref: string;
+  _type: string;
+}
+
+interface File {
+  _key: string;
+  _type: 'file';
+  language: string;
+  asset: Asset;
+}
+
+interface SocialMedia {
+  _key: string;
+  _type: 'social';
+  href: string;
+  provider: string;
+}
+export interface About {
+  _type: 'about';
+  _createdAt: string;
+  _id: string;
+  _rev: string;
+  _updatedAt: string;
+  description: GenericBlock[];
+  file: File[];
+  social: SocialMedia[];
+  title: string;
 }
