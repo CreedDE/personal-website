@@ -4,6 +4,7 @@
   import ThemeToggle from './theme-toggle.svelte';
   import Button from './ui/button.svelte';
   import * as Sheet from './ui/sheet';
+  import { page } from '$app/stores';
 
   // export let menuItems: MenuItem[];
 
@@ -32,7 +33,8 @@
         <ul class="flex items-center h-12 gap-4">
           {#each menuItems as menuItem}
             <li
-              class="font-medium transition-colors duration-200 hover:text-primary text-foreground"
+              class="font-medium transition-colors duration-200 hover:text-primary text-foreground {$page
+                .url.pathname === menuItem.href && `text-primary`}"
             >
               <a href={menuItem.href}>{menuItem.title}</a>
             </li>
