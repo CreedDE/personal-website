@@ -2,8 +2,10 @@
   import { onMount } from 'svelte';
   import type { PageData } from './$types';
   import Navbar from '$lib/components/navbar.svelte';
-  export let data: PageData;
+  import Footer from '$lib/components/footer.svelte';
   import '../app.postcss';
+
+  export let data: PageData;
 
   onMount(() => {
     document.documentElement.setAttribute('data-theme', data.theme as string);
@@ -31,6 +33,6 @@
         </div>
       </div>
     </main>
-    <!-- <Footer menuItems={data.navigation.menuItems} /> -->
+    <Footer />
   </div>
 </div>
